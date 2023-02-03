@@ -1,0 +1,119 @@
+
+.grid-container{
+    display: grid;
+    overflow: hidden;
+    gap: 20px;
+    margin-inline: auto;
+    min-height: 100vh;
+}
+.video{
+    width: 100%;
+    height: 100%;
+}
+ video.hero{
+    aspect-ratio: 16/9;
+}
+video.hero{
+    width: 100%;
+    height: 100%;
+}
+.grid-container .info,
+.video-container p{
+    font-size: var(--step--0);
+    font-family: var(--ff-ubuntu);
+    color:var(--color-text);
+}
+.grid-container .info p{
+    padding: 10px 0;
+}
+.grid-container .info p span{
+font-size: var(--step-1);
+padding: 10px 0;
+}
+.grid-container .hero-container{
+    display: grid;
+    justify-content: start;
+}
+.video-container{
+    display: grid;
+    position: relative;
+    grid-template-columns: 30vmin 1fr 10vmin;
+    max-height: 30vmin;
+    width: 100%;
+    gap: 10px;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+    background: var(--color-secondary);
+}
+
+.video-container::after{
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+width: 100%;
+height: 5px;
+background: var(--color-primary);
+}
+.video-container video{
+    aspect-ratio: 16/9;
+    object-fit: contain;
+    margin: 10px;
+}
+.video-container p{
+     display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-inline: 10px;
+}
+.video-container p span{
+    font-size: var(--step-0);
+}
+
+.video-container a i{
+    font-size: var(--step-1);
+    cursor: pointer;
+}
+.video-container a i[data-status="active"]{
+    color: var(--color-primary);
+}
+.grid-container .playlist-container h1{
+  font-size: var(--step-1);
+  color: var(--color-text);
+  font-family: var(--ff-ubuntu);
+  margin: 10px 0;
+}
+@media screen and (orientation: landscape){
+  .grid-container{
+    /* max-width: 1200px; */
+    display: flex;
+    position: relative;
+    align-items: stretch;
+  }  
+  .grid-container .hero-container{
+    flex-grow: 1;
+  }
+  .video.hero{
+    flex-grow: 2;
+  }
+  .video.hero video{
+    object-fit: cover;
+  }
+  .grid-container .playlist{
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+  }
+  .grid-container .playlist-container{
+    position: relative;
+    max-height: 80vh;
+    min-width: 300px;
+    max-width: 500px;
+    /* flex-grow: 1; */
+  }
+
+}
+

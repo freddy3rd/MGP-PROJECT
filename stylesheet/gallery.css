@@ -1,0 +1,313 @@
+section{
+    position: relative;
+    grid-template-columns: max-content 1fr;
+    grid-template-areas: "sidebar content";
+}
+section .content{
+    display: grid;
+    /* justify-items: center; */
+    width: 100%;
+    margin-inline: 1rem;
+}
+
+
+/* Main CSS */
+li.path{
+    display: none;
+    color: white;
+}
+    main{
+        padding-inline: 2rem;
+    }
+
+  .container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    /* padding: 100px 2vw; */
+  }
+  
+  .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .post {
+    position: relative;
+    overflow: hidden;
+    /* background: #131313; */
+  }
+  
+  img {
+    width: 100%;
+    filter: grayscale(50%);
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #161616;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  .overlay h3{
+    font-size: var(--step-0);
+    color: var(--color-text);
+    font-family: var(--ff-anton);
+  }
+  .post:hover .overlay {
+    opacity: 0.95;
+    cursor:zoom-in;
+  }
+
+
+main h1{
+    position: relative;
+    font-size: var(--step-0);
+    font-weight: bold;
+    font-family: var(--ff-ubuntu);
+    padding: 10px 0;
+    color: var(--color-text);
+    margin: 20px 0;
+    text-align: center;
+    justify-self: start;
+    width: max-content;
+    height: max-content ;
+    animation: fadeIn 1000ms ease;
+}
+main h1::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    width: 80%;
+    background: var(--color-border-focus);
+    transform-origin: left;
+    animation: underline 1000ms ease;    
+}
+
+@keyframes underline{
+    0%{
+       
+        transform: scaleX(0);
+    }
+    100%{
+        transform: scaleX(1);    
+    }
+}
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);  
+    }
+}
+/* 
+@media screen and (orientation: landscape){
+    section .content{
+        display: grid;
+        margin-inline: auto;
+        width: 100%;
+        padding: 2rem;
+    }
+    .grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+        grid-auto-rows: 200px;
+        grid-auto-flow: dense;
+        width:100%;
+    }
+
+    .grid-wrapper > div > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+        vertical-align: middle;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .grid-wrapper .wide {
+        grid-column: span 2;
+    }
+    .grid-wrapper .tall {
+        grid-row: span 2;
+    }
+    .grid-wrapper .big {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+    
+} */
+/* =========================V I E W I M A G E=================================== */
+
+.view-image{    
+   display: grid;
+    place-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 300ms ease-in;
+    transition-delay: 100ms;
+    pointer-events: none;
+    z-index: 100;
+}
+.view-image.active{
+    display: grid;
+    place-content: center;
+    background: rgba(0,0,0,.5);
+    opacity: 1;
+    pointer-events: all;
+    scroll-behavior: none   ;
+}
+.view-image .image-container{
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    padding-inline: 2rem;
+}
+.view-image .image-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    pointer-events: none;
+    /* pointer-events: none; */
+}
+/* =========================V I E W I M A G E=================================== */
+
+/* ===============================S I D E N A V B A R================================================== */
+.sidebar-gallery {
+
+    grid-area: sidebar;
+    width: 100%;
+    min-width: 250px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	/* background: #fff; */
+	padding: 2.5rem .5rem 2rem .5rem;
+    margin: 0 ;
+}
+
+.sidebar-gallery button {
+  
+	color: inherit;
+	background: transparent;
+	height: 60px;
+	font-family: inherit;
+	border: 0;
+	outline: 0;
+	padding: 0;
+	cursor: pointer;
+}
+
+.sidebar-gallery nav {
+    position: relative;
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	width: 100%;
+}
+.sidebar-gallery button > span {
+	display: flex;
+    position: relative;
+	align-items: center;
+	grid-gap: .9rem;
+	height: 6.8vh;
+	padding: 0 .9rem;
+	line-height: 1;
+}
+.sidebar-gallery button > span::after{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    transform-origin: top;
+    transform: scaleY(0);
+    transition: transform 200ms ease;
+    background: var(--color-border-focus);
+}
+.sidebar-gallery button > span[data-status="active"]:after{
+    transform: scaleY(1);
+}
+
+.sidebar-gallery button:hover > span {
+	background: var(--color-secondary-50);
+}
+
+@media (width < 880px) {
+	.sidebar-gallery .sidebar_header i {
+		display: block;
+	}
+	
+	.sidebar-gallery {
+		min-width: 73px;
+	}
+	
+	.sidebar-gallery button > span > span {
+		opacity: 0;
+		visibility: hidden;
+        display: none;
+	}
+}
+
+.sidebar-gallery button i {
+	position: relative;
+	font-size: var(--step-0);
+}
+
+.sidebar-gallery button img {
+	width: 28px;
+	height: 28px;
+	transition: .2s;
+}
+
+.sidebar-gallery button > span > i span {
+	position: absolute;
+	top: -6px;
+	right: -12px;
+	height: 20px;
+	display: grid;
+	place-items: center;
+	color: var(--color-text);
+	font-style: normal;
+	font-size: .6rem;
+	border-radius: 10px;
+	padding: 0 5px;
+}
+
+.sidebar-gallery button > span > i em {
+	position: absolute;
+	top: 1px;
+	right: -2px;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+}
+
+.sidebar-gallery button > span {
+	font-size: var(--step--1);
+	font-weight: 400;
+}
+
+/* ===============================S I D E N A V B A R================================================== */

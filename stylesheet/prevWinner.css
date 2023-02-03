@@ -1,0 +1,180 @@
+.slider {
+	width: 100%;
+}
+.slider input {
+	display: none;
+}
+.testimonials {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	min-height: 550px;
+	perspective: 1000px;
+	overflow: hidden;
+}
+.testimonials .item {
+	width: 350px;
+	height: 500px;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: var(--color-circle-backdrop);
+	position: absolute;
+	top: 0;
+	box-sizing: border-box;
+	text-align: center;
+	transition: transform 0.4s;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	user-select: none;
+	cursor: pointer;
+
+    /* filter: drop-shadow(0px 20px 30px rgba(0, 0, 0, 0.25)); */
+}
+.itemContainer{
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+}
+.itemContainer .crown{
+	position: absolute;
+	bottom: 27%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 70px;
+	height: 50px;
+	z-index: 20;
+}
+.itemContainer > *{
+	pointer-events: none;
+}
+.itemContainer .frame{
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	max-width: 100%;
+	max-height: 150px;
+	z-index: 5;
+	opacity: 50%;
+}
+.itemContainer .bg{
+	position: absolute;
+	opacity: 70%;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: -2;
+}
+
+.testimonials .item img:not(.crown) {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.testimonials .item .info{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	width: 100%;
+	height: 30%;
+	background: rgba(212, 175, 55,60%);
+	backdrop-filter: blur(20px);
+	bottom: 0;
+	justify-self: end;
+}
+.testimonials .item h2,.testimonials .item h3 {
+	font-size: var(--step-0);
+	font-family: var(--ff-anton);
+	letter-spacing: 2px;
+	/* color: var(); */
+	text-align: center;
+	/* font-weight: bold; */
+	margin: 5px 0;
+	z-index: 12;
+}
+.testimonials .item h3{
+	/* letter-spacing: 10px; */
+	max-width: 300px;
+	font-size: 1rem;
+	letter-spacing: 2px;
+	color: var(--color-header-dark);
+	padding: 0;
+}
+.Sliderdots {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.Sliderdots label {
+	height: 15px;
+	width: 15px;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #413B52;
+	margin-inline: 10px;
+	transition-duration: 0.2s;
+}
+
+#t-1:checked ~ .Sliderdots label[for="t-1"],
+#t-2:checked ~ .Sliderdots label[for="t-2"],
+#t-3:checked ~ .Sliderdots label[for="t-3"],
+#t-4:checked ~ .Sliderdots label[for="t-4"],
+#t-5:checked ~ .Sliderdots label[for="t-5"] {
+	transform: scale(2);
+	background-color:var(--color-primary);
+}
+#t-1:checked ~ .Sliderdots label[for="t-2"],
+#t-2:checked ~ .Sliderdots label[for="t-1"],
+#t-2:checked ~ .Sliderdots label[for="t-3"],
+#t-3:checked ~ .Sliderdots label[for="t-2"],
+#t-3:checked ~ .Sliderdots label[for="t-4"],
+#t-4:checked ~ .Sliderdots label[for="t-3"],
+#t-4:checked ~ .Sliderdots label[for="t-5"],
+#t-5:checked ~ .Sliderdots label[for="t-4"] {
+	transform: scale(1.5);
+}
+#t-1:checked ~ .testimonials label[for="t-3"],
+#t-2:checked ~ .testimonials label[for="t-4"],
+#t-3:checked ~ .testimonials label[for="t-5"],
+#t-4:checked ~ .testimonials label[for="t-1"],
+#t-5:checked ~ .testimonials label[for="t-2"] {
+	transform: translate3d(600px, 0, -180px) rotateY(-25deg);
+	z-index: 2;
+}
+#t-1:checked ~ .testimonials label[for="t-2"],
+#t-2:checked ~ .testimonials label[for="t-3"],
+#t-3:checked ~ .testimonials label[for="t-4"],
+#t-4:checked ~ .testimonials label[for="t-5"],
+#t-5:checked ~ .testimonials label[for="t-1"] {
+	transform: translate3d(300px, 0, -90px) rotateY(-15deg);
+	z-index: 3;
+}
+#t-2:checked ~ .testimonials label[for="t-1"],
+#t-3:checked ~ .testimonials label[for="t-2"],
+#t-4:checked ~ .testimonials label[for="t-3"],
+#t-5:checked ~ .testimonials label[for="t-4"],
+#t-1:checked ~ .testimonials label[for="t-5"] {
+	transform: translate3d(-300px, 0, -90px) rotateY(15deg);
+	z-index: 3;
+}
+#t-3:checked ~ .testimonials label[for="t-1"],
+#t-4:checked ~ .testimonials label[for="t-2"],
+#t-5:checked ~ .testimonials label[for="t-3"],
+#t-2:checked ~ .testimonials label[for="t-5"],
+#t-1:checked ~ .testimonials label[for="t-4"] {
+	transform: translate3d(-600px, 0, -180px) rotateY(25deg);
+}
+#t-1:checked ~ .testimonials label[for="t-1"],
+#t-2:checked ~ .testimonials label[for="t-2"],
+#t-3:checked ~ .testimonials label[for="t-3"],
+#t-4:checked ~ .testimonials label[for="t-4"],
+#t-5:checked ~ .testimonials label[for="t-4"],
+#t-5:checked ~ .testimonials label[for="t-5"] {
+	z-index: 4;
+}

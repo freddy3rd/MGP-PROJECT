@@ -1,0 +1,124 @@
+footer{
+    font-family: var(--ff-ubuntu);
+    color: var(--color-text);
+    background: var(--color-footer-dark);
+    line-height: 30px;
+}
+
+
+footer ul li,
+footer span,
+footer legend{
+    color: var(--color-text);
+    font-size: var(--step--0);
+    font-family: var(--ff-ubuntu);
+    /* padding : 10px 0; */
+}
+footer span,
+footer legend{
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+footer ul{
+    display: grid;
+    text-align: center;
+    /* gap: 20px; */
+}
+
+footer ul div:not(.socmed){
+    text-align: center;
+    font-size: var(--step--0);
+    font-weight: bold;
+}
+footer .socmed div{
+    display: flex;
+    gap: 10px;
+    place-content: center;    
+}
+footer .socmed div a{
+    font-size: var(--step-0)
+}
+
+@media screen and (min-width: 800px) {
+    footer ul{
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 20px;
+        text-align: left;
+    }
+    footer ul > li {
+        grid-column: 2;
+    }
+    footer .socmed{
+        grid-column: 3;
+        grid-row: 1;
+        display: grid;
+        place-content: center;
+        margin-bottom: 16px;
+    }
+    footer .socmed div{
+        display: flex;
+        gap: 10px;
+        place-content: start;    
+    }
+    /* .socmed div > *{
+        font-size: 1.5rem;
+        margin-inline: 10px;
+    } */
+    footer ul div:not(.socmed){
+        grid-row:4 ;
+        grid-column: span 3;
+        text-align: center;
+        padding: 5px 0;
+    }
+}
+
+
+/* Socmed Hover */
+.socmed .tooltiptext {
+    visibility: hidden;
+    width: max-content;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 0 5px;
+    /* Position the tooltip */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    font-size: .6rem;
+  }
+  
+  .socmed div > *:hover .tooltiptext {
+    visibility: visible;
+    font-weight: lighter;
+  }
+  .socmed div > *:hover{
+    scale: 1.2;
+  }
+.socmed .twitter:hover{
+    color: lightseagreen;
+
+}
+.socmed .facebook:hover{
+    color: #1877F2;
+
+}
+.socmed .instagram:hover{
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
+
+.socmed .tiktok:hover{
+    color: black;
+    -webkit-text-stroke: .5px var(--color-text);
+}
+.socmed .youtube:hover{
+    color: #FF0302;
+
+}

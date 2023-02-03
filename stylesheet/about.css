@@ -1,0 +1,149 @@
+section{
+    line-height: 30px;
+    font-family: var(--ff-ubuntu);
+    font-size: var(--step--1);
+    color: var(--color-text);
+    text-align: justify;
+    /* height: 100vh; */
+}
+
+.wrapper h1{
+    font-size: var(--step-1);
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+    .wrapper{
+        grid-template-columns: max-content 1fr;
+    }
+    
+    .image-container{
+        width: 45vmin;
+        aspect-ratio: 1/1;
+    }
+    .image-container img{
+        object-fit: contain;
+    }
+    .wrapper p{
+        align-self: center;
+    }
+
+}
+/* =========== C A R D - C O N T A I N E R ================ */
+
+.card-container{
+    gap: 20px;
+}
+
+.info{
+    padding: 20px;
+    color: white;
+    font-size: var(--step--1);
+    z-index: 1;
+}
+
+.info h1{
+    font-size: var(--step-1);
+    padding: 10px 0;
+    font-family: var(--ff-anton);
+    text-transform: capitalize;
+    line-height: 2;
+    letter-spacing: 2px;
+}
+
+
+
+    .card-container{
+        position: relative;
+        padding-inline: 20px;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit,minmax(22rem,1fr));
+    }
+    .card{
+        display: grid;
+        position: relative;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        border-radius: 10px;
+        color: var(--color-primary-dark);
+        aspect-ratio: 4/4;
+    }
+    
+    section .card:nth-child(1){
+        background-image: url(../images/vision-image/masculinity_1.jpg);
+    }
+    section .card:nth-child(2){
+        background-image: url(../images/vision-image/sportmanship_3.jpg);
+    }
+    section .card:nth-child(3){
+        background-image: url(../images/vision-image/potential_2.jpg);
+    }
+
+    .card::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,.5);
+    }
+    .info{
+        position: absolute;
+        /* padding-inline: 20px; */
+    }
+
+
+
+
+@media screen  and (min-width:800px) {
+    .card-container{
+        grid-template-columns: 1fr;
+    }
+    .card,.card img{
+        aspect-ratio: auto;
+    }
+
+    .card{
+        display: grid;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-height: 300px;
+        background-position: left;
+        background-size: 50%;
+        grid-template-columns: 1fr 1fr 1fr;
+        border-radius: 5px;
+    }
+    .card .info{
+        grid-column: 2/4;
+        position: relative;
+    }
+    .card:nth-child(2) .info{
+        grid-column: 1/3;
+    }
+    .card::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    .card:nth-child(odd)::after{
+        background: linear-gradient(90deg, #000000 0%, rgba(20, 20, 22, 0) 105.41%);
+    }
+    .card:nth-child(even)::after{
+        background: linear-gradient(90deg, rgba(20, 20, 22, 0) 0%, #000000 105.41%);
+    }
+
+    section .card:nth-child(even){
+        background-position: right;
+    }
+
+}

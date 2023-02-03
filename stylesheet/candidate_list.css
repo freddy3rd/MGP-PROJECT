@@ -1,0 +1,99 @@
+ /* section{
+    min-height:100%;
+ } */
+ .candidate-container{
+    display: flex;
+    position: relative;
+    /* overflow: hidden; */
+    width: 100%;
+}
+ .candidate-container:hover{
+    border: 5px solid var(--color-border-focus);
+}
+ .candidate-container h1{
+    font-size: var(--step--1);
+    font-family: var(--ff-ubuntu);
+    width: 100%;
+    text-transform: capitalize;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    bottom:0;
+    left: 0;
+    height: 30%;
+    display: flex;
+    padding-inline: 10px;
+    justify-content: center;
+    align-items: center;
+    /* transform: translate(-50%,0%); */
+    text-align: center;
+}
+
+     .candidate-wrapper{
+        grid-template-columns: repeat(auto-fit,minmax(35vmin, 1fr));
+        place-items: center;
+        gap: 30px;
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+     .candidate-container, 
+     .candidate-container img{
+        aspect-ratio: 1/1;
+    }
+
+     .candidate-container img{
+        object-fit: cover;
+    }
+    .buttons {
+        display: flex;
+        /* border: 1px solid lime; */
+        width: 100%;
+        justify-content: space-between;
+    }
+
+     .buttons > button{
+        padding: 5px 20px;
+        border-radius: 100px;
+        text-transform: capitalize;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: none;
+        background: transparent;
+    }
+ 
+    .buttons > button:enabled,
+    .buttons > button[enabled]{
+        border: var(--color-border-focus);
+        background: var(--color-primary);
+    }
+
+    .buttons > button:disabled,
+    .buttons > button[disabled]{
+     border: 1px solid #999999;
+     background-color: #cccccc;
+     color: #666666;
+    }
+    
+    @media screen and (orientation: landscape) {
+        .buttons{
+            width: max-content;
+            justify-self: end;
+            gap: 20px;
+        }
+        #candidate_list{
+            height: 100vh;
+        }
+    }
+    /* @media screen and (max-width: 800px){
+         .candidate-container{
+            position: absolute;
+            width: 50vmin;
+        }
+         .candidate-wrapper{
+            aspect-ratio: 12/7;
+        }
+
+    } */
