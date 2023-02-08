@@ -1,0 +1,31 @@
+#previews,.image-container {
+  aspect-ratio: 1/1;
+  width: 10vw;
+}
+#previews {
+  gap:10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+#previews img {
+ height: 100%;
+ width: 100%;
+  object-fit: contain;
+  box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.75);
+}
+#previews .filename {
+  padding: 10px;
+  font-weight: bold;
+}
+#previews > div {
+    box-sizing: border-box;
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    vertical-align: top;
+  }
+  
+#previews > div > progress {
+    width: 80%;
+  }
